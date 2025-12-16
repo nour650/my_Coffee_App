@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import LoginFormComponent from '../components/LoginForm';
+import LoginFormComponent from '../components/LoginScreen/LoginForm';
 import React from 'react';
 import { FormData } from '../types/FormData';
-import Button from '../components/Button';
+import Button from '../components/LoginScreen/Button';
 
 export default function LoginScreen({ navigation }: any) {
   const [formData, setFormData] = React.useState<FormData>({
@@ -18,7 +18,7 @@ export default function LoginScreen({ navigation }: any) {
       return;
     }
 
-    if (formData.email !== 'nour@gmail.com' || formData.password !== 'nour0000') {
+    if (formData.email !== 'yudi@gmail.com' || formData.password !== 'Yudi') {
       setErrorMessage('Email or password is incorrect');
       return;
     }
