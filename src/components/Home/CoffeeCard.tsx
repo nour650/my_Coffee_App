@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, Text, Image, StyleSheet, Alert } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { FavoritesContext } from '../../context/FavoritesContext';
 import { CartContext } from '../../context/CartContext';
@@ -10,22 +10,28 @@ export default function CoffeeCard({ item, onPress, showFavorite, onDelete }: an
 
   const isFavorite = favorites.some(fav => fav.id === item.id);
 
+  const handleAddToCart = () => {
+    addToCart({
+      ...item,
+      cupSize: 'Small',
+      sugarLevel: 'No Sugar',
+    });
+
+    // ✅ Afficher une alerte
+    Alert.alert(
+      'Ajouté au panier',
+      `${item.name} a été ajouté à votre panier.`,
+      [{ text: 'OK' }]
+    );
+  };
+
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <View style={styles.imageContainer}>
         <Image source={item.image} style={styles.image} />
 
         {/* Bouton + pour ajouter au panier */}
-        <TouchableOpacity
-          style={styles.plusButton}
-          onPress={() =>
-            addToCart({
-              ...item,
-              cupSize: 'Small',
-              sugarLevel: 'No Sugar',
-            })
-          }
-        >
+        <TouchableOpacity style={styles.plusButton} onPress={handleAddToCart}>
           <MaterialIcons name="add" size={18} color="#FFF" />
         </TouchableOpacity>
 
@@ -45,7 +51,7 @@ export default function CoffeeCard({ item, onPress, showFavorite, onDelete }: an
           </TouchableOpacity>
         )}
 
-        {/* 🔹 Bouton supprimer */}
+        {/* Bouton supprimer */}
         {onDelete && (
           <TouchableOpacity
             style={styles.deleteButton}
@@ -64,6 +70,9 @@ export default function CoffeeCard({ item, onPress, showFavorite, onDelete }: an
     </TouchableOpacity>
   );
 }
+
+// ...styles restent identiques
+
 
 const styles = StyleSheet.create({
   card: {

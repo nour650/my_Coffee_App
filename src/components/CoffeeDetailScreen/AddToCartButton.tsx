@@ -1,12 +1,23 @@
 import React, { useContext } from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
 import { CartContext, CoffeeItem } from '../../context/CartContext';
 
 export default function AddToCartButton({ coffee }: { coffee: CoffeeItem }) {
   const { addToCart } = useContext(CartContext);
 
+  const handleAddToCart = () => {
+    addToCart(coffee);
+
+    // ✅ Afficher une alerte
+    Alert.alert(
+      'Ajouté au panier',
+      `${coffee.name} a été ajouté à votre panier.`,
+      [{ text: 'OK' }]
+    );
+  };
+
   return (
-    <TouchableOpacity style={styles.addButton} onPress={() => addToCart(coffee)}>
+    <TouchableOpacity style={styles.addButton} onPress={handleAddToCart}>
       <Text style={styles.addText}>Add to cart | Rp {coffee.price}</Text>
     </TouchableOpacity>
   );
