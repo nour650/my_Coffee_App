@@ -7,7 +7,9 @@ import { CartProvider } from './src/context/CartContext';
 
 export default function App() {
   return (
+    // Rend les favoris accessibles dans toute l’application.
     <FavoritesProvider>
+    {/* Rend le panier accessible partout */}
       <CartProvider>
         <AppTemplate>
           <NavigationContainer>

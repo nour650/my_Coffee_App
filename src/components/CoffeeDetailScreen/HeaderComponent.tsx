@@ -26,7 +26,7 @@ export default function HeaderComponent({
         <MaterialIcons name="arrow-back-ios" size={20} color="#107523" />
       </TouchableOpacity>
 
-      {/* ❤️ Favoris → فقط Special Offers */}
+      {/* Favoris →  Special Offers */}
       {showFavorite && (
         <TouchableOpacity
           style={styles.iconCircle}

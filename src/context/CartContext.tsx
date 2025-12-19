@@ -40,6 +40,7 @@ const addToCart = (product: any) => {
       return [...prev, { ...product, quantity: 1 }];
     }
   });
+  
 };
 
 

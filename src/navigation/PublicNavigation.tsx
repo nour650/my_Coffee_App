@@ -14,6 +14,9 @@ function PublicNavigation() {
   return (
     <PublicStack.Navigator
       initialRouteName="Welcome"
+//Cache l’en-tête (header) par défaut de React Navigation.
+// Pas de barre avec le titre
+// Pas de bouton retour automatique
       screenOptions={{ headerShown: false }}
     >
       <PublicStack.Screen name="Welcome" component={WelcomeScreen} />

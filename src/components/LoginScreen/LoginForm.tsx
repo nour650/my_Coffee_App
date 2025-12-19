@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { FormData } from '../../types/FormData';
+import { FormData } from '../../data/FormData';
 
 export default function LoginFormComponent({
   formData,

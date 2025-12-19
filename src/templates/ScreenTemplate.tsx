@@ -16,7 +16,6 @@ export default function ScreenTemplate(props: PropsWithChildren) {
         },
       ]}
     >
-      {/* <ScrollView style={styles.scrollView}>{props.children}</ScrollView> */}
             <View style={styles.content}>{props.children}</View>
 
     </View>
@@ -27,9 +26,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  // scrollView: {
-  //   flex: 1,
-  // },
+ 
   content: {
     flex: 1, // ✅ important pour remplir l’écran
   },

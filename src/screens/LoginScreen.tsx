@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import LoginFormComponent from '../components/LoginScreen/LoginForm';
 import React from 'react';
-import { FormData } from '../types/FormData';
+import { FormData } from '../data/FormData';
 import Button from '../components/LoginScreen/Button';
 
 export default function LoginScreen({ navigation }: any) {

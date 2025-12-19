@@ -11,6 +11,7 @@ export default function CoffeeCard({ item, onPress, showFavorite, onDelete }: an
   const isFavorite = favorites.some(fav => fav.id === item.id);
 
   const handleAddToCart = () => {
+    
     addToCart({
       ...item,
       cupSize: 'Small',
